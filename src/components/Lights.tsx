@@ -1,32 +1,37 @@
 import { FC, useEffect, useRef } from "react";
 import { type PointLight, PointLightHelper } from "three";
-import { GUI } from "dat.gui";
+import { GUI } from "lil-gui";
 import { useThree } from "@react-three/fiber";
 
 export const Lights: FC = () => {
   const ref = useRef<PointLight>(null);
   const { scene } = useThree();
 
-  // @see https://sbcode.net/react-three-fiber/dat.gui/
+  // @see https://sbcode.net/react-three-fiber/lil-gui/
   useEffect(() => {
     const gui = new GUI();
-    if (!ref.current) return;
+    if (!ref.current) {
+      return;
+    }
+
+    // 位置を定義
     gui.add(ref.current.position, "x", -10.0, 10.0);
     gui.add(ref.current.position, "y", -10.0, 10.0);
     gui.add(ref.current.position, "z", -10.0, 10.0);
     return () => {
-      gui.destroy();
+      gui.destroy(); // コンポーネントのアンマウント時にクリーンアップ
     };
   }, []);
 
   useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
     // ライトへの参照が正しく取得できたらhelperを作成し、Sceneに追加
-    if (!ref.current) return;
-
     const helper = new PointLightHelper(ref.current, 0.5, 0xff0000);
     scene.add(helper);
 
-    // コンポーネントがアンマウントされる時にヘルパーを除去
+    // コンポーネントのアンマウント時にhelperを除去
     return () => {
       scene.remove(helper);
     };
@@ -40,7 +45,7 @@ export const Lights: FC = () => {
         color={"#ffe8b7"}
         intensity={200}
         position={[1.4, 3, -2.9]}
-        castShadow // 影を落とす
+        castShadow={true} // 影を落とす
         shadow-mapSize={[2048, 2048]} // 影の解像度を高めに設定
       />
 

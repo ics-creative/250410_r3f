@@ -4,6 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { BoxComponent } from "./components/Box.tsx";
 import { Lights } from "./components/Lights.tsx";
 import { Model } from "./components/Model.tsx";
+import { Ring } from "./components/Ring.tsx";
+import { PointerTest } from "./components/PointerTest.tsx";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -40,15 +42,43 @@ function App() {
 
           <BoxComponent />
 
-          <mesh position={[0, 0, 2]} castShadow>
-            <torusGeometry args={[3, 0.3, 16, 100]} />
-            <meshPhongMaterial color={"#1a75cf"} specular={"#b9997e"} />
-          </mesh>
+          <Ring
+            props={{
+              position: [0, 2, 0],
+              rotation: [1, 0, 0],
+            }}
+            torusArgs={{
+              args: [2.3, 0.05, 16, 100],
+            }}
+            meshRotation={{ x: 0.001, y: 0.005, z: 0 }}
+          />
+
+          <Ring
+            props={{
+              position: [0, 2, 0],
+              rotation: [0, 1, 0],
+            }}
+            torusArgs={{
+              args: [2, 0.05, 16, 100],
+            }}
+            meshRotation={{ x: -0.01, y: 0.005, z: 0 }}
+          />
+
+          <Ring
+            props={{
+              position: [0, 2, 0],
+              rotation: [0.2, 0.5, 0],
+            }}
+            torusArgs={{
+              args: [1.8, 0.05, 16, 100],
+            }}
+            meshRotation={{ x: 0.01, y: 0.01, z: 0 }}
+          />
 
           {/* 床 */}
           <mesh
             position={[0, 0, 0]}
-            receiveShadow // 影を受け付ける
+            receiveShadow={true} // 影を受け付ける
           >
             <boxGeometry args={[1000, 0.1, 12]} />
             <meshStandardMaterial color={"#e5f9ff"} roughness={0} />
@@ -57,8 +87,8 @@ function App() {
           {/* 壁 */}
           <mesh
             position={[5, 0, -5]}
-            castShadow // 影を落とす
-            receiveShadow // 影を受け付ける
+            castShadow={true} // 影を落とす
+            receiveShadow={true} // 影を受け付ける
           >
             <boxGeometry args={[12, 12, 0.1]} />
             <meshStandardMaterial color={"#e5f9ff"} roughness={0} />
@@ -67,17 +97,18 @@ function App() {
           <Lights />
 
           {/* 3Dモデルの読み込み。Suspenseで囲むことで読み込み後に3D空間に追加される */}
-          <Suspense>
+          <Suspense fallback={null}>
             <Model
               props={{
-                position: [0, 0.8, 1],
+                position: [0, 0.8, 3],
                 scale: [2, 2, 2],
               }}
               rotateY={count}
             />
-            {/*/>*/}
           </Suspense>
         </Canvas>
+
+        <PointerTest />
       </div>
     </>
   );

@@ -1,16 +1,17 @@
-import { ReactThreeFiber, useFrame, useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useFrame, useLoader, ThreeElements } from "@react-three/fiber";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // これでも動作するが型エラーが出るため、three-stdlib を追加し使用。
+import { GLTFLoader } from "three-stdlib";
 import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
 
 type Props = {
-  props?: ReactThreeFiber.Object3DNode<THREE.Group, typeof THREE.Group>;
+  props?: ThreeElements["group"];
   rotateY: number;
 };
 
 export const Model: FC<Props> = ({ props, rotateY }) => {
+  // 3Dモデルの読み込み
   const gltf = useLoader(GLTFLoader, "/gltf/neji.glb");
-  console.log(gltf);
 
   useEffect(() => {
     // モデルのメッシュにシャドウを有効化
@@ -27,16 +28,17 @@ export const Model: FC<Props> = ({ props, rotateY }) => {
 
   // 毎フレームの更新
   useFrame(() => {
-    if (!ref.current) return;
+    if (!ref.current) {
+      return;
+    }
     ref.current.rotation.y -= rotateY * 0.01;
   });
 
   return <primitive {...props} object={gltf.scene} ref={ref} />;
+
+  // メモ: @react-three/drei を入れる場合は、以下に同じ
+  // return <Gltf src="/gltf/neji.glb" />;
+
+  // const gltf = useGLTF("/gltf/neji.glb");
+  // return <primitive object={gltf.scene} />;
 };
-
-// dreiを入れる場合、以下
-// const gltf = useGLTF(modelPath);
-// return <primitive {...props} object={gltf.scene} />;
-
-// こちらでもOK
-// return <Gltf src="/gltf/scene.gltf" scale={0.02} />;

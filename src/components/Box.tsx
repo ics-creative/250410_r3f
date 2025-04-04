@@ -16,7 +16,6 @@ export const BoxComponent: FC = () => {
     // まだアニメーションが始まっていない場合は何もしない
     if (!meshRef.current || !startTime) return;
 
-
     // アニメーション方法1
     meshRef.current.position.x = THREE.MathUtils.lerp(
       meshRef.current.position.x,
@@ -50,9 +49,9 @@ export const BoxComponent: FC = () => {
   return (
     <mesh
       ref={meshRef}
+      position={[0, 2, 0]}
+      castShadow={true} // 影を落とす
       onClick={handleStartAnimation}
-      position={[0, 0.5, 0]}
-      castShadow // 影を落とす
     >
       <boxGeometry />
       <meshStandardMaterial />

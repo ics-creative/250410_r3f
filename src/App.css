@@ -7,12 +7,13 @@
 }
 
 .canvasContainer {
+  position: relative;
   width: 100%;
   height: 100vh;
 }
 
 .buttonContainer {
-  position: fixed;
+  position: absolute;
   top: 16px;
   left: 16px;
   display: grid;
@@ -27,14 +28,23 @@
   width: 200px;
 }
 
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  gap: 16px;
+}
+
 .testCanvasContainer {
   width: 100%;
-  height: 200px;
+  height: 240px;
 }
 
 .headerContainer {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
-  gap: 16px;
+  gap: 56px;
 }

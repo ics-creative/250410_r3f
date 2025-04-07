@@ -44,7 +44,7 @@ export const Lights: FC = () => {
         ref={ref}
         color={"#ffe8b7"}
         intensity={200}
-        position={[1.4, 3, -2.9]}
+        position={[1.4, 5, -2.9]}
         castShadow={true} // 影を落とす
         shadow-mapSize={[2048, 2048]} // 影の解像度を高めに設定
       />

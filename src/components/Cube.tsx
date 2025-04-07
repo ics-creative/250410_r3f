@@ -1,12 +1,14 @@
 import { FC, useState } from "react";
 import { ThreeElements, ThreeEvent } from "@react-three/fiber";
 
-type Props = {
-  props?: ThreeElements["mesh"];
+type Props = ThreeElements["mesh"] & {
   isPropagated?: boolean;
 };
 
-export const Cube: FC<Props> = ({ props, isPropagated }) => {
+/**
+ * ポインターイベント検証用の箱
+ */
+export const Cube: FC<Props> = ({ isPropagated, ...props }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {

@@ -4,17 +4,14 @@ import { GLTFLoader } from "three-stdlib";
 import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
 
-type Props = {
-  props?: ThreeElements["group"];
-  rotateY: number;
-};
+type Props = ThreeElements["group"] & { rotateY: number };
 
-export const Model: FC<Props> = ({ props, rotateY }) => {
+export const Model: FC<Props> = ({ rotateY, ...props }) => {
   // 3Dモデルの読み込み
   const gltf = useLoader(GLTFLoader, "/gltf/neji.glb");
 
   useEffect(() => {
-    // モデルのメッシュにシャドウを有効化
+    // シャドウを有効化
     gltf.scene.traverse((obj: THREE.Object3D) => {
       const object = obj as THREE.Mesh;
       if (object.isMesh) {
@@ -37,8 +34,17 @@ export const Model: FC<Props> = ({ props, rotateY }) => {
   return <primitive {...props} object={gltf.scene} ref={ref} />;
 
   // メモ: @react-three/drei を入れる場合は、以下に同じ
-  // return <Gltf src="/gltf/neji.glb" />;
+  // return (
+  //   <Gltf
+  //     {...props}
+  //     src="/gltf/neji.glb"
+  //     castShadow={true} // 影を落とす
+  //     receiveShadow={true} // 影を受け付ける
+  //     ref={ref}
+  //   />
+  // );
 
+  // メモ: 以下でもOK
   // const gltf = useGLTF("/gltf/neji.glb");
-  // return <primitive object={gltf.scene} />;
+  // return <primitive {...props} object={gltf.scene} ref={ref} />;
 };

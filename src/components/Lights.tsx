@@ -1,19 +1,21 @@
 import { FC, useEffect, useRef } from "react";
-import { type PointLight, PointLightHelper } from "three";
+import { type PointLight, PointLightHelper, SpotLight } from "three";
 import { GUI } from "lil-gui";
-import { useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 
 export const Lights: FC = () => {
   const ref = useRef<PointLight>(null);
+  const lightRedRef = useRef<SpotLight>(null);
+  const lightBlueRef = useRef<PointLight>(null);
   const { scene } = useThree();
 
   // @see https://sbcode.net/react-three-fiber/lil-gui/
   useEffect(() => {
-    const gui = new GUI();
     if (!ref.current) {
       return;
     }
 
+    const gui = new GUI();
     // 位置を定義
     gui.add(ref.current.position, "x", -10.0, 10.0);
     gui.add(ref.current.position, "y", -10.0, 10.0);
@@ -37,32 +39,52 @@ export const Lights: FC = () => {
     };
   }, [scene]);
 
+  const angleRef = useRef(0);
+  const speed = 3;
+  const radius = 2;
+  useFrame((_, delta) => {
+    if (!lightRedRef.current || !lightBlueRef.current) {
+      return;
+    }
+
+    // 現在時間の継続時間に対する進捗度を算出
+    angleRef.current += speed * delta;
+
+    const x = radius * Math.cos(angleRef.current);
+    const z = radius * Math.sin(angleRef.current);
+    lightRedRef.current.position.set(x, 2, z);
+    lightBlueRef.current.position.set(-x, 2, -z);
+  });
+
   return (
     <>
       {/* キーライト */}
       <pointLight
         ref={ref}
         color={"#ffe8b7"}
-        intensity={200}
-        position={[1.4, 5, -2.9]}
+        intensity={100}
+        position={[0, 0, 5.5]}
         castShadow={true} // 影を落とす
         shadow-mapSize={[2048, 2048]} // 影の解像度を高めに設定
       />
 
-      {/* リムライト1 */}
-      <pointLight color={"#ff9d8c"} intensity={80} position={[5.6, 1.4, 2.7]} />
-
-      {/* リムライト2 */}
-      <pointLight
-        color={"#0693df"}
-        intensity={80}
-        position={[-0.9, 2.5, -1.4]}
+      {/* ライト1 */}
+      <spotLight
+        color={"#ff9d8c"}
+        intensity={40}
+        penumbra={0.5}
+        position={[3, 1.4, 0]}
+        ref={lightRedRef}
+        castShadow={true} // 影を落とす
       />
 
-      {/* 空気感用ライティング: 空の色, 地の色（反射光）, 光の強さ*/}
-      <hemisphereLight
-        args={["#fbf3e2", "#6697ff", 0.5]}
-        position={[0, 10, 0]}
+      {/* ライト2 */}
+      <pointLight
+        color={"#0693df"}
+        intensity={40}
+        position={[-0, 2.5, -3]}
+        ref={lightBlueRef}
+        castShadow={true} // 影を落とす
       />
     </>
   );

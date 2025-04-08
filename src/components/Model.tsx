@@ -1,12 +1,14 @@
-import { useFrame, useLoader, ThreeElements } from "@react-three/fiber";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // これでも動作するが型エラーが出るため、three-stdlib を追加し使用。
+import {ThreeElements, useLoader} from "@react-three/fiber";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // これでも動作するが型エラーが出るため、three-stdlibパッケージを追加し使用。
 import { GLTFLoader } from "three-stdlib";
-import { FC, useEffect, useRef } from "react";
+import {FC, useEffect} from "react";
 import * as THREE from "three";
+import { a } from "@react-spring/three";
+import { useEnergy } from "./useEnergy.ts";
 
-type Props = ThreeElements["group"] & { rotateY: number };
+type Props = ThreeElements["group"];
 
-export const Model: FC<Props> = ({ rotateY, ...props }) => {
+export const Model:FC<Props> = ({...props}) => {
   // 3Dモデルの読み込み
   const gltf = useLoader(GLTFLoader, "/gltf/neji.glb");
 
@@ -21,17 +23,18 @@ export const Model: FC<Props> = ({ rotateY, ...props }) => {
     });
   }, [gltf]);
 
-  const ref = useRef<THREE.Group>(null);
+  const { rotation, handleClick } = useEnergy();
 
-  // 毎フレームの更新
-  useFrame(() => {
-    if (!ref.current) {
-      return;
-    }
-    ref.current.rotation.y -= rotateY * 0.01;
-  });
+  return (
+    <a.primitive
+        {...props}
 
-  return <primitive {...props} object={gltf.scene} ref={ref} />;
+      rotation={rotation}
+      object={gltf.scene}
+      onClick={handleClick}
+      dispose={null}
+    />
+  );
 
   // メモ: @react-three/drei を入れる場合は、以下に同じ
   // return (

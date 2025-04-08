@@ -3,7 +3,7 @@ import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
 
 type Props = ThreeElements["mesh"] & {
-  torusArgs?: ThreeElements["torusGeometry"];
+  torusArgs?: ThreeElements["torusGeometry"]["args"];
   meshRotation?: { x: number; y: number; z: number };
 };
 
@@ -24,7 +24,7 @@ export const Ring: FC<Props> = ({ torusArgs, meshRotation, ...props }) => {
 
   return (
     <mesh {...props} ref={meshRef} scale={0}>
-      <torusGeometry {...torusArgs} />
+      <torusGeometry args={torusArgs} />
       <meshPhongMaterial
         color={"#1a75cf"}
         specular={"#b9997e"}

@@ -1,14 +1,26 @@
-import { useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
 import * as THREE from "three";
 
-export const Box = () => {
+export type BoxRefType = {
+  getMesh: () => Mesh | null;
+};
+
+type Props = ThreeElements["mesh"] & { shouldStick?: boolean };
+
+const Box = forwardRef<BoxRefType, Props>(({ shouldStick, ...props }, ref) => {
   // 回転アニメーションがアクティブか？
   const [isActive, setIsActive] = useState(false);
   // メッシュの参照
   const meshRef = useRef<Mesh>(null);
 
+  // refを公開（スポットライトのターゲット用）
+  useImperativeHandle(ref, () => ({
+    getMesh: () => meshRef.current,
+  }));
+
+  const progressRef = useRef(0); // 経過時間を格納するref
   const v = new Vector3();
   // 毎フレームの更新
   useFrame((state, delta) => {
@@ -16,11 +28,29 @@ export const Box = () => {
       return;
     }
 
-    // ポインターの位置に応じてメッシュのxy座標を滑らかに動かす
-    meshRef.current.position.lerp(
-      v.set(state.pointer.x * 3, state.pointer.y * 2, 0),
-      0.05, // 補間係数
-    );
+    progressRef.current += delta * 2;
+
+    // ネジ巻きのホバー時は、xzの位置を固定する
+    if (shouldStick) {
+      meshRef.current.position.lerp(
+        v.set(0, 0.1 + Math.sin(progressRef.current) * 0.5, 4),
+        0.05, // 補間係数
+      );
+      meshRef.current.scale.lerp(
+        v.set(0.3, 0.3, 0.3),
+        0.05, // 補間係数
+      );
+    } else {
+      // ポインターの位置に応じてメッシュのxy座標を滑らかに動かす
+      meshRef.current.position.lerp(
+        v.set(state.pointer.x * 3, state.pointer.y * 2, 0),
+        0.05, // 補間係数
+      );
+      meshRef.current.scale.lerp(
+        v.set(1, 1, 1),
+        0.05, // 補間係数
+      );
+    }
 
     // クリック時（isActiveがtrueの時）に1回転させる
     meshRef.current.rotation.y = isActive
@@ -45,6 +75,7 @@ export const Box = () => {
 
   return (
     <mesh
+      {...props}
       ref={meshRef}
       rotation={[-1, 0, 1]}
       position={[0, 15, 0]} // 初期位置（上から登場する）
@@ -55,4 +86,6 @@ export const Box = () => {
       <meshStandardMaterial />
     </mesh>
   );
-};
+});
+
+export default Box;

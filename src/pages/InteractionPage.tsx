@@ -1,22 +1,22 @@
-import { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Box } from "../components/Box.tsx";
 import { Ring } from "../components/Ring.tsx";
 import { Lights } from "../components/Lights.tsx";
+import Box from "../components/Box.tsx";
 
-const InteractionPage: FC = () => {
+const InteractionPage = () => {
   return (
     <div className="canvasContainer">
       <Canvas
         camera={{
           fov: 45, // 視野角
+          near: 0.1,
           position: [0, 3, 10], // 位置
         }}
         shadows={"soft"} // 影を有効化
       >
         {/* 背景色 */}
         <color attach="background" args={["#0e0f10"]} />
-        {/* フォグ（空気遠近感を出す） */}
+        {/* フォグ */}
         <fog attach="fog" args={["#518db8", 5, 20]} />
 
         <Box />

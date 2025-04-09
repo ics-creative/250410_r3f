@@ -1,0 +1,22 @@
+import { Canvas } from "@react-three/fiber";
+import { Link } from "react-router-dom";
+
+const MinimumConfigPage = () => {
+  return (
+    <div>
+      <div className="canvasContainer canvasContainer__withLink">
+        <Canvas>
+          <mesh>
+            {/* 球体ジオメトリ */}
+            <sphereGeometry />
+            {/* ノーマルマテリアル */}
+            <meshNormalMaterial />
+          </mesh>
+        </Canvas>
+      </div>
+      <Link to="/">ホームへ戻る</Link>
+    </div>
+  );
+};
+
+export default MinimumConfigPage;

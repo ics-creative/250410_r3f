@@ -1,32 +1,35 @@
 import { useEffect, useState } from "react";
 import { useSpring } from "@react-spring/three";
 
-export const useEnergy = () => {
-  const [energy, setEnergy] = useState(0);
-  const maxRotation = 4; // 半回転 4回分 = 2回転
-  const anglePerClick = Math.PI; // 半回転
+const MAX_ROTATION = 10; // = 5回転
 
-  const rotationY = energy * anglePerClick;
+/**
+ * ネジ巻きの回転数管理を提供するhooks
+ */
+export const useEnergy = () => {
+  const [energy, setEnergy] = useState(0); // 半回転分で管理とする
+
+  const rotationY = energy * Math.PI;
 
   // springを定義（ターゲットのrotation.yが徐々に戻る）
   const { rotation } = useSpring({
-    rotation: [0, -rotationY, 0], // target rotation
-
+    rotation: [0, -rotationY, 0],
     config: { mass: 1, tension: 50, friction: 20 }, // 動きのふんわり感
   });
 
   const handleClick = () => {
-    if (energy < maxRotation) {
+    // maxまでは、クリック時に半回転ごとに加算
+    if (energy < MAX_ROTATION) {
       setEnergy((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setEnergy((prev) => (prev > 0 ? prev - 0.01 : 0)); // ゆっくり減る
+    const intervalId = setInterval(() => {
+      // 常時ゆっくり減る
+      setEnergy((prev) => (prev > 0 ? prev - 0.01 : 0));
     }, 16); // 約60fps
-
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalId);
   }, []);
 
   return {
@@ -34,5 +37,7 @@ export const useEnergy = () => {
     rotation,
     /** ネジクリック時のハンドラ */
     handleClick,
+    /** ネジが回転中か？ */
+    isActive: energy > 0,
   };
 };

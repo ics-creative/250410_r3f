@@ -40,7 +40,8 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
       - name: Build
-        run: npm run build
+        # ビルドコマンド
+        run: tsc && vite build
         
       - name: Setup Pages
         uses: actions/configure-pages@v5

@@ -9,8 +9,10 @@ import MinimumConfigPage from "./pages/MinimumConfigPage.tsx";
 import DreiSamplePage from "./pages/DreiSamplePage.tsx";
 
 const App = () => {
+  const baseName = import.meta.env.MODE === "development" ? "/" : "/250410_r3f";
+
   return (
-    <Router>
+    <Router basename={baseName}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/minimum" element={<MinimumConfigPage />} />

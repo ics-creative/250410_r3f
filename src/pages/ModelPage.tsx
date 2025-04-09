@@ -6,7 +6,10 @@ import { GLTFLoader } from "three-stdlib";
 
 const Model = () => {
   // 3Dモデルの読み込み
-  const gltf = useLoader(GLTFLoader, "/gltf/neji.glb");
+  const gltf = useLoader(
+    GLTFLoader,
+    `${import.meta.env.BASE_URL}gltf/neji.glb`,
+  ); // 本番・開発環境でパスを切り替える
   return (
     <primitive
       object={gltf.scene}

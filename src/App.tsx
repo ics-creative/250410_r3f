@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage.tsx";
 import InteractionPage from "./pages/InteractionPage.tsx";
 import ModelPage from "./pages/ModelPage.tsx";
 import MinimumConfigPage from "./pages/MinimumConfigPage.tsx";
+import DreiSamplePage from "./pages/DreiSamplePage.tsx";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/model" element={<ModelPage />} />
         <Route path="/pointer" element={<PointerPage />} />
         <Route path="/interaction" element={<InteractionPage />} />
+        <Route path="/dreisample" element={<DreiSamplePage />} />
         <Route path="/main" element={<MainPage />} />
       </Routes>
     </Router>

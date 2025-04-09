@@ -1,45 +1,31 @@
 import { Canvas } from "@react-three/fiber";
-import { Ring } from "../components/Ring.tsx";
 import { Lights } from "../components/Lights.tsx";
 import Box from "../components/Box.tsx";
+import { Link } from "react-router-dom";
 
 const InteractionPage = () => {
   return (
-    <div className="canvasContainer">
-      <Canvas
-        camera={{
-          fov: 45, // 視野角
-          near: 0.1,
-          position: [0, 3, 10], // 位置
-        }}
-        shadows={"soft"} // 影を有効化
-      >
-        {/* 背景色 */}
-        <color attach="background" args={["#0e0f10"]} />
-        {/* フォグ */}
-        <fog attach="fog" args={["#518db8", 5, 20]} />
+    <div>
+      <div className="canvasContainer canvasContainer__withLink">
+        <Canvas
+          camera={{
+            fov: 45, // 視野角
+            near: 0.1,
+            position: [0, 3, 10], // 位置
+          }}
+          shadows={"soft"} // 影を有効化
+        >
+          {/* 背景色 */}
+          <color attach="background" args={["#0e0f10"]} />
+          {/* フォグ */}
+          <fog attach="fog" args={["#518db8", 5, 20]} />
 
-        <Box />
+          <Box />
 
-        {/* 飾りの輪っか */}
-        <Ring
-          rotation={[1, 0, 0]}
-          torusArgs={[2.3, 0.02, 16, 100]}
-          meshRotation={{ x: 0.001, y: 0.005, z: 0 }}
-        />
-        <Ring
-          rotation={[0, 1, 0]}
-          torusArgs={[2, 0.02, 16, 100]}
-          meshRotation={{ x: -0.01, y: 0.005, z: 0 }}
-        />
-        <Ring
-          rotation={[0.2, 0.5, 0]}
-          torusArgs={[1.8, 0.02, 16, 100]}
-          meshRotation={{ x: 0.01, y: 0.01, z: 0 }}
-        />
-
-        <Lights />
-      </Canvas>
+          <Lights />
+        </Canvas>
+      </div>
+      <Link to="/">ホームへ戻る</Link>
     </div>
   );
 };

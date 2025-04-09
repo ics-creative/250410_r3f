@@ -1,6 +1,11 @@
 import { FC, useRef } from "react";
 import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
+import {
+  GradientTexture,
+  GradientType,
+  MeshDistortMaterial,
+} from "@react-three/drei";
 
 type Props = ThreeElements["mesh"] & {
   torusArgs?: ThreeElements["torusGeometry"]["args"];
@@ -19,17 +24,20 @@ export const Ring: FC<Props> = ({ torusArgs, meshRotation, ...props }) => {
     meshRef.current.rotation.y += meshRotation?.y ?? 0;
     meshRef.current.rotation.z += meshRotation?.z ?? 0;
 
+    // 初回はスケール１にアニメーション
     meshRef.current.scale.lerp(v.set(1, 1, 1), 0.05);
   });
 
   return (
     <mesh {...props} ref={meshRef} scale={0}>
       <torusGeometry args={torusArgs} />
-      <meshPhongMaterial
-        color={"#1a75cf"}
-        specular={"#b9997e"}
-        emissive={"#fff"}
-      />
+      <MeshDistortMaterial distort={0.7} speed={5}>
+        <GradientTexture
+          stops={[0, 1]}
+          colors={["#e8ef29", "#12c4ec"]}
+          type={GradientType.Radial}
+        />
+      </MeshDistortMaterial>
     </mesh>
   );
 };

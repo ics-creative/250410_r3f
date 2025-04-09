@@ -20,7 +20,8 @@ npm run vite
 - [Three.js](https://threejs.org/)
 - [React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction)
 - [React](https://ja.react.dev/)
-- [@react-spring/three](https://react-spring.dev/): アニメーション用
+- [@react-three/drei](https://drei.docs.pmnd.rs/getting-started/introduction): （AdditionalPageでの解説用）
+- [@react-spring/three](https://react-spring.dev/): ネジ巻きのアニメーション用
 - three-stdlib: 型エラーの解決用
 - react-router-dom: ページ遷移用
 - そのほかフォーマット用など

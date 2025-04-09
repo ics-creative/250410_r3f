@@ -14,7 +14,12 @@ const HomePage = () => {
           <Link to="/pointer">ポインターイベント検証用</Link>
         </li>
         <li>
-          <Link to="/interaction">インタラクション</Link>
+          <Link to="/interaction">
+            インタラクション・アニメーションのサンプル
+          </Link>
+        </li>
+        <li>
+          <Link to="/dreisample">dreiを使用したサンプル</Link>
         </li>
         <li>
           <Link to="/main">メイン</Link>

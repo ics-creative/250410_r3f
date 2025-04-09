@@ -43,7 +43,7 @@ jobs:
 
       - name: Build
         # ビルドコマンド
-        run: tsc && vite build
+        run: npm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v5

@@ -54,7 +54,7 @@ const StageSpotLight = forwardRef<SpotLightRefType, Props>(
       <spotLight
         {...props}
         angle={Math.PI / 8}
-        intensity={40}
+        intensity={0}
         penumbra={0.2}
         castShadow={true} // 影を落とす
         ref={lightRef}

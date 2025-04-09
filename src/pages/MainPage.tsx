@@ -12,7 +12,7 @@ const MainPage = () => {
         shadows={"soft"} // 影を有効化
       >
         {/* 背景色 */}
-        <color attach="background" args={["#0e0f10"]} />
+        <color attach="background" args={["#13151c"]} />
 
         <MainContents />
 
@@ -26,9 +26,9 @@ const MainPage = () => {
         </mesh>
 
         <pointLight
-          color={"#ffe8b7"}
-          intensity={5}
-          position={[0, 0, 5.5]}
+          color={"#ffecc5"}
+          intensity={10}
+          position={[1, 2, 3.5]}
           castShadow={true} // 影を落とす
           shadow-mapSize={[2048, 2048]} // 影の解像度を高めに設定
         />

@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
 import * as THREE from "three";
+import { NEJI_POSITION } from "../consts/position.ts";
 
 export type BoxRefType = {
   getMesh: () => Mesh | null;
@@ -33,7 +34,11 @@ const Box = forwardRef<BoxRefType, Props>(({ shouldStick, ...props }, ref) => {
     // ネジ巻きのホバー時は、xzの位置を固定する
     if (shouldStick) {
       meshRef.current.position.lerp(
-        v.set(0, 0.1 + Math.sin(progressRef.current) * 0.5, 4),
+        v.set(
+          NEJI_POSITION[0],
+          0.1 + Math.sin(progressRef.current) * 0.5,
+          NEJI_POSITION[2],
+        ),
         0.05, // 補間係数
       );
       meshRef.current.scale.lerp(

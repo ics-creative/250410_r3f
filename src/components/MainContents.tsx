@@ -4,7 +4,11 @@ import { useEnergy } from "./useEnergy.ts";
 import { Model } from "./Model.tsx";
 import Box, { BoxRefType } from "./Box.tsx";
 import StageSpotLight, { SpotLightRefType } from "./StageSpotLight.tsx";
+import { NEJI_POSITION } from "../consts/position.ts";
 
+/**
+ * react-springを使用したメインコンテンツ部分
+ */
 export const MainContents = () => {
   // Boxコンポーネントの参照
   const boxRef = useRef<BoxRefType>(null);
@@ -52,7 +56,7 @@ export const MainContents = () => {
       <StageSpotLight
         ref={lightRedRef}
         color={"#f80e60"}
-        position={[0, 1.4, 0]}
+        position={[0, 1, 0]}
         isActive={isActive}
         index={0}
       />
@@ -74,7 +78,7 @@ export const MainContents = () => {
       {/*3Dモデルの読み込み。Suspenseで囲むことで読み込み後に3D空間に追加される */}
       <Suspense fallback={null}>
         <Model
-          position={[0, -1.3, 4]}
+          position={NEJI_POSITION}
           scale={[2, 2, 2]}
           rotation={rotation}
           onClick={handleClick}

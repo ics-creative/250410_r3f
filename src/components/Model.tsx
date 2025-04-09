@@ -2,9 +2,12 @@ import { ThreeElements, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three-stdlib";
 import { FC, useEffect } from "react";
 import * as THREE from "three";
-import { a } from "@react-spring/three";
+import { a, AnimatedProps, SpringValue } from "@react-spring/three";
 
-type Props = ThreeElements["group"];
+type Props = Omit<AnimatedProps<ThreeElements["group"]>, "rotation"> & {
+  // AnimatedPropsで解決できなかったのでrotationだけ型を拡張
+  rotation?: SpringValue<number[]> | number[];
+};
 
 export const Model: FC<Props> = ({ ...props }) => {
   // 3Dモデルの読み込み

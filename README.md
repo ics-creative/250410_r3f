@@ -8,23 +8,25 @@ ICS MEDIAの記事『』のサンプルコードです。
 npm install
 ```
 
+作例で使用しているパッケージに依存関係を解決できないものがあったので、インストールできなかった場合は以下のコマンドをお試しください。
+```bash
+npm install --legacy-peer-deps
+```
+
 起動は、以下のコマンドを行うか、package.jsonのscriptsのdevコマンドを実行することで開発画面が起動できます。
 
 ```bash
 npm run vite
 ```
 
-## ディレクトリ
-
-
-
 ## 使用ライブラリ
 
-- Three.js
+- [Three.js](https://threejs.org/)
 - [React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction)
-- react-router-dom: 遷移用
+- [React](https://ja.react.dev/)
+- [@react-spring/three](https://react-spring.dev/): アニメーション用
 - three-stdlib: 型エラーの解決用
-- @react-spring/three: アニメーション用
+- react-router-dom: ページ遷移用
 - そのほかフォーマット用など
 
 

@@ -48,7 +48,6 @@ const StageSpotLight = forwardRef<SpotLightRefType, Props>(
         isActive ? 4 : 8, //減衰係数。光り始める時はなだらかに、消える時は余韻少なめ
         delta,
       );
-      // TODO 光ってない時は止めたい？
     });
 
     return (

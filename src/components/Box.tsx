@@ -46,7 +46,7 @@ const Box = forwardRef<BoxRefType, Props>(({ shouldStick, ...props }, ref) => {
         0.05, // 補間係数
       );
     } else {
-      // ポインターの位置に応じてメッシュのxy座標を滑らかに動かす
+      // ポインターの位置に応じてメッシュのxy座標をなめらかに動かす
       meshRef.current.position.lerp(
         v.set(state.pointer.x * 3, state.pointer.y * 2, 0),
         0.05, // 補間係数

@@ -34,7 +34,7 @@ export const Ring: FC<Props> = ({ torusArgs, meshRotation, ...props }) => {
       <MeshDistortMaterial distort={0.7} speed={5}>
         <GradientTexture
           stops={[0, 1]}
-          colors={["#e8ef29", "#12c4ec"]}
+          colors={["#ff8dd1", "#41b5fb"]}
           type={GradientType.Radial}
         />
       </MeshDistortMaterial>

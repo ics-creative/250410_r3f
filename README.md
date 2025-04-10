@@ -1,6 +1,6 @@
 # 250410_r3f
 
-ICS MEDIAの記事『』のサンプルコードです。
+ICS MEDIAの記事『[React Three Fiber入門 - ReactとThree.jsで始める3D表現](https://ics.media/entry/250410/)』のサンプルコードです。
 
 パッケージマネージャーを使用しています。以下のコマンドを行うことでモジュールが追加されます。
 

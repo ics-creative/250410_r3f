@@ -22,7 +22,7 @@ const HomePage = () => {
           <Link to="/dreisample">dreiを使用したサンプル</Link>
         </li>
         <li>
-          <Link to="/main">メイン</Link>
+          <Link to="/main">メイン作例</Link>
         </li>
       </ul>
     </nav>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MinimumConfigPage = () => {
   return (
-    <div>
+    <div className={"page"}>
       <div className="canvasContainer canvasContainer__withLink">
         <Canvas>
           <mesh>

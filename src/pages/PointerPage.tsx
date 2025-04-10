@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PointerPage = () => {
   return (
-    <div>
+    <div className={"page"}>
       <div className="test">
         <h1>ポインターイベントの違い</h1>
         <div className="headerContainer">

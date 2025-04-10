@@ -30,7 +30,7 @@ const Model = () => {
 
 const ModelPage = () => {
   return (
-    <div>
+    <div className={"page"}>
       <div className={"canvasContainer canvasContainer__withLink"}>
         <Canvas
           camera={{

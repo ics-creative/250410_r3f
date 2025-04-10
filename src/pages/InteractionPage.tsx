@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const InteractionPage = () => {
   return (
-    <div>
+    <div className={"page"}>
       <div className="canvasContainer canvasContainer__withLink">
         <Canvas
           camera={{

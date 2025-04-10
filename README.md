@@ -3,10 +3,9 @@
 ICS MEDIAの記事『』のサンプルコードです。
 
 パッケージマネージャーを使用しています。以下のコマンドを行うことでモジュールが追加されます。
-※作例で使用しているパッケージに依存関係を解決できないものがあったので、`--legacy-peer-deps`フラグが必要になります。
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 ```
 
 package.jsonのscriptsのdevコマンドを実行することで開発画面が起動できます。

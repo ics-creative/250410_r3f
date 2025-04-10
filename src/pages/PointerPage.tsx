@@ -2,17 +2,17 @@ import { Canvas } from "@react-three/fiber";
 import { Cube } from "../components/Cube.tsx";
 import { Link } from "react-router-dom";
 
-const PointerPage = () => {
+export const PointerPage = () => {
   return (
     <div className={"page"}>
-      <div className="test">
+      <div className="pointerTestWapper">
         <h1>ポインターイベントの違い</h1>
-        <div className="headerContainer">
+        <div className="pointerLayout">
           <h2>①伝播防止なし</h2>
           <h2>②伝播防止あり</h2>
 
           {/* 左: 伝播防止なし */}
-          <div className="testCanvasContainer">
+          <div className="pointerTestCanvasContainer">
             <Canvas
               orthographic={true}
               camera={{
@@ -29,7 +29,7 @@ const PointerPage = () => {
             </Canvas>
           </div>
           {/* 右: 伝播防止あり */}
-          <div className="testCanvasContainer">
+          <div className="pointerTestCanvasContainer">
             <Canvas
               orthographic={true}
               camera={{
@@ -52,5 +52,3 @@ const PointerPage = () => {
     </div>
   );
 };
-
-export default PointerPage;

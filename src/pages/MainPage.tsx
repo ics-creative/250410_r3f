@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { MainContents } from "../components/MainContents.tsx";
 
-const MainPage = () => {
+export const MainPage = () => {
   return (
     <div className={"page"}>
       <div className="canvasContainer">
@@ -38,5 +38,3 @@ const MainPage = () => {
     </div>
   );
 };
-
-export default MainPage;

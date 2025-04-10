@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Ring } from "../components/Ring.tsx";
 import { CameraControls, Sky, Wireframe } from "@react-three/drei";
 
-const DreiSamplePage = () => {
+export const DreiSamplePage = () => {
   return (
     <div className={"page"}>
       <div className="canvasContainer">
@@ -48,11 +48,9 @@ const DreiSamplePage = () => {
           <ambientLight intensity={1} />
 
           {/* ドラッグやスクロールでカメラを操作できるコントローラー */}
-          <CameraControls makeDefault />
+          <CameraControls minDistance={1} maxDistance={100} />
         </Canvas>
       </div>
     </div>
   );
 };
-
-export default DreiSamplePage;

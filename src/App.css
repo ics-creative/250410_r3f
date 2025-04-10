@@ -1,6 +1,5 @@
 #root {
   width: 100%;
-  margin: 0 auto;
   text-align: center;
   touch-action: manipulation;
 }
@@ -18,7 +17,7 @@
   height: calc(100% - 4em);
 }
 
-.test {
+.pointerTestWapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,12 +26,12 @@
   gap: 16px;
 }
 
-.testCanvasContainer {
+.pointerTestCanvasContainer {
   width: 200px;
   height: 240px;
 }
 
-.headerContainer {
+.pointerLayout {
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: 60px 240px;

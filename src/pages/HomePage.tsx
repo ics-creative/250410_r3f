@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <nav>
       <ul>
@@ -28,5 +28,3 @@ const HomePage = () => {
     </nav>
   );
 };
-
-export default HomePage;

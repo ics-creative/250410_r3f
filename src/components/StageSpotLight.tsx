@@ -14,7 +14,7 @@ type Props = ThreeElements["spotLight"] & {
   index: number;
 };
 
-const StageSpotLight = forwardRef<SpotLightRefType, Props>(
+export const StageSpotLight = forwardRef<SpotLightRefType, Props>(
   ({ isActive, index, ...props }, ref) => {
     const lightRef = useRef<SpotLight>(null);
 
@@ -62,5 +62,3 @@ const StageSpotLight = forwardRef<SpotLightRefType, Props>(
     );
   },
 );
-
-export default StageSpotLight;

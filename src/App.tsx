@@ -1,14 +1,14 @@
 import "./App.css";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage.tsx";
-import PointerPage from "./pages/PointerPage.tsx";
-import HomePage from "./pages/HomePage.tsx";
-import InteractionPage from "./pages/InteractionPage.tsx";
-import ModelPage from "./pages/ModelPage.tsx";
-import MinimumConfigPage from "./pages/MinimumConfigPage.tsx";
-import DreiSamplePage from "./pages/DreiSamplePage.tsx";
+import { HomePage } from "./pages/HomePage.tsx";
+import { MinimumConfigPage } from "./pages/MinimumConfigPage.tsx";
+import { ModelPage } from "./pages/ModelPage.tsx";
+import { PointerPage } from "./pages/PointerPage.tsx";
+import { InteractionPage } from "./pages/InteractionPage.tsx";
+import { DreiSamplePage } from "./pages/DreiSamplePage.tsx";
+import { MainPage } from "./pages/MainPage.tsx";
 
-const App = () => {
+export const App = () => {
   return (
     <Router>
       <Routes>
@@ -23,5 +23,3 @@ const App = () => {
     </Router>
   );
 };
-
-export default App;

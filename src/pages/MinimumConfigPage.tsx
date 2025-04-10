@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Link } from "react-router-dom";
 
-const MinimumConfigPage = () => {
+export const MinimumConfigPage = () => {
   return (
     <div className={"page"}>
       <div className="canvasContainer canvasContainer__withLink">
@@ -18,5 +18,3 @@ const MinimumConfigPage = () => {
     </div>
   );
 };
-
-export default MinimumConfigPage;

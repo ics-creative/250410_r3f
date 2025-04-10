@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Lights } from "../components/Lights.tsx";
-import Box from "../components/Box.tsx";
 import { Link } from "react-router-dom";
+import { Box } from "../components/Box.tsx";
 
-const InteractionPage = () => {
+export const InteractionPage = () => {
   return (
     <div className={"page"}>
       <div className="canvasContainer canvasContainer__withLink">
@@ -29,5 +29,3 @@ const InteractionPage = () => {
     </div>
   );
 };
-
-export default InteractionPage;

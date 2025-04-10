@@ -28,7 +28,7 @@ const Model = () => {
   // return <primitive object={gltf.scene} />;
 };
 
-const ModelPage = () => {
+export const ModelPage = () => {
   return (
     <div className={"page"}>
       <div className={"canvasContainer canvasContainer__withLink"}>
@@ -74,5 +74,3 @@ const ModelPage = () => {
     </div>
   );
 };
-
-export default ModelPage;

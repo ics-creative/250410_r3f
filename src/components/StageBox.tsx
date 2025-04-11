@@ -27,7 +27,6 @@ export const StageBox = forwardRef<BoxRefType, Props>(
       getMesh: () => meshRef.current,
     }));
 
-    const progressRef = useRef(0); // 経過時間を格納するref
     const v = new Vector3();
     // 毎フレームの更新
     useFrame((state, delta) => {
@@ -35,15 +34,12 @@ export const StageBox = forwardRef<BoxRefType, Props>(
         return;
       }
 
-      // 経過時間を格納
-      progressRef.current += delta * 2;
-
       // shouldStickがtrue時（ネジ巻きのホバー時を想定）は、xzの位置を固定する
       if (shouldStick) {
         meshRef.current.position.lerp(
           v.set(
             NEJI_POSITION[0],
-            0.1 + Math.sin(progressRef.current) * 0.5,
+            0.1 + Math.sin(state.clock.elapsedTime * 2) * 0.5,
             NEJI_POSITION[2],
           ),
           delta * 2, // 補間係数。リフレッシュレートに依存しないアニメーション速度を保つためデルタタイムを渡す

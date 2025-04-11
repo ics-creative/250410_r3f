@@ -27,20 +27,15 @@ export const StageSpotLight = forwardRef<SpotLightRefType, Props>(
     }));
 
     // ネジ巻きの回転に応じたアニメーション
-    const progressRef = useRef(0); // 経過時間を格納するref
-    const SPEED = 5; // スポットライトの回転スピード
+    const SPEED = 5; // スポットライトの回転スピード（秒）
     const RADIUS = 2; // スポットライト円周移動時の半径
-    useFrame((_, delta) => {
+    useFrame((state, delta) => {
       if (!lightRef.current) {
         return;
       }
-      progressRef.current += SPEED * delta; // 経過時間を格納
-      const x =
-        RADIUS *
-        Math.cos(progressRef.current + ((index * Math.PI) / 180) * 100);
-      const z =
-        RADIUS *
-        Math.sin(progressRef.current + ((index * Math.PI) / 180) * 100);
+      const progress = SPEED * state.clock.elapsedTime; // 経過時間
+      const x = RADIUS * Math.cos(progress + ((index * Math.PI) / 180) * 100);
+      const z = RADIUS * Math.sin(progress + ((index * Math.PI) / 180) * 100);
 
       lightRef.current.position.set(x, lightRef.current.position.y, z);
 

@@ -8,16 +8,14 @@ import { useFrame } from "@react-three/fiber";
 export const Lights = () => {
   const lightBlueRef = useRef<PointLight>(null);
 
-  const progressRef = useRef(0); // 経過時間を格納するref
-  const radius = 2;
-  useFrame((_, delta) => {
+  const RADIUS = 2;
+  useFrame((state) => {
     if (!lightBlueRef.current) {
       return;
     }
 
-    progressRef.current += delta;
-    const x = radius * Math.cos(progressRef.current);
-    const z = radius * Math.sin(progressRef.current);
+    const x = RADIUS * Math.cos(state.clock.elapsedTime);
+    const z = RADIUS * Math.sin(state.clock.elapsedTime);
     lightBlueRef.current.position.set(-x, 2, -z);
   });
 
@@ -25,7 +23,6 @@ export const Lights = () => {
     <>
       <pointLight color={"#f80e60"} intensity={40} position={[3, 0, 0]} />
       <pointLight color={"#dfb406"} intensity={40} position={[-3, 0, 0]} />
-      {/* ライト2 */}
       <pointLight
         color={"#0693df"}
         intensity={40}

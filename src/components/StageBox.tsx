@@ -11,7 +11,8 @@ export type BoxRefType = {
 type Props = ThreeElements["mesh"] & { shouldStick?: boolean };
 
 /**
- * Box.tsxを記事解説で使用するため、メイン作例用にコピーして分割していいます
+ * メイン作例用の立方体
+ * Box.tsxとほぼ同じ見た目ですが、Box.tsxを記事解説で使用するため、メイン作例用にコピーしてファイルを分割しています。
  * @see src/components/Box.tsx
  */
 export const StageBox = forwardRef<BoxRefType, Props>(
@@ -45,7 +46,7 @@ export const StageBox = forwardRef<BoxRefType, Props>(
             0.1 + Math.sin(progressRef.current) * 0.5,
             NEJI_POSITION[2],
           ),
-          delta * 2, // 補間係数。リフレッシュレートによってアニメーションの速度に差異がでないようデルタタイムを渡す
+          delta * 2, // 補間係数。リフレッシュレートに依存しないアニメーション速度を保つためデルタタイムを渡す
         );
         meshRef.current.scale.lerp(
           v.set(0.3, 0.3, 0.3),
@@ -69,7 +70,7 @@ export const StageBox = forwardRef<BoxRefType, Props>(
             meshRef.current.rotation.y, // from
             2 * Math.PI, // to
             4, //減衰係数。値が大きいほど動きが急になり、小さいほど動きがなめらかになる
-            delta, // 補間係数。リフレッシュレートによってアニメーションの速度に差異がでないようデルタタイムを渡す
+            delta, // 補間係数。リフレッシュレートに依存しないアニメーション速度を保つためデルタタイムを渡す
           )
         : 0; // 0に戻す
 

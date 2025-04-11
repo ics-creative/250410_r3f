@@ -22,7 +22,7 @@ export const Box = () => {
     // ポインターの位置に応じてメッシュのxy座標をなめらかに動かす
     meshRef.current.position.lerp(
       v.set(state.pointer.x * 3, state.pointer.y * 2, 0),
-      delta * 2, // 補間係数。リフレッシュレートによってアニメーションの速度に差異がでないようデルタタイムを渡す
+      delta * 2, // 補間係数。リフレッシュレートに依存しないアニメーション速度を保つためデルタタイムを渡す
     );
 
     // クリック時（isActiveがtrueの時）に1回転させる
@@ -31,7 +31,7 @@ export const Box = () => {
           meshRef.current.rotation.y, // from
           2 * Math.PI, // to
           4, //減衰係数。値が大きいほど動きが急になり、小さいほど動きがなめらかになる
-          delta, // 補間係数
+          delta, // 補間係数。リフレッシュレートに依存しないアニメーション速度を保つためデルタタイムを渡す
         )
       : 0; // 0に戻す
 

@@ -14,6 +14,9 @@ type Props = ThreeElements["spotLight"] & {
   index: number;
 };
 
+/**
+ * react-springを使用したメイン作例
+ */
 export const StageSpotLight = forwardRef<SpotLightRefType, Props>(
   ({ isActive, index, ...props }, ref) => {
     const lightRef = useRef<SpotLight>(null);
@@ -31,7 +34,7 @@ export const StageSpotLight = forwardRef<SpotLightRefType, Props>(
       if (!lightRef.current) {
         return;
       }
-      progressRef.current += SPEED * delta;
+      progressRef.current += SPEED * delta; // 経過時間を格納
       const x =
         RADIUS *
         Math.cos(progressRef.current + ((index * Math.PI) / 180) * 100);

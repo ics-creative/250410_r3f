@@ -3,11 +3,11 @@ import { useThree } from "@react-three/fiber";
 import { useEnergy } from "./useEnergy.ts";
 import { Model } from "./Model.tsx";
 import { NEJI_POSITION } from "../consts/position.ts";
-import { Box, BoxRefType } from "./Box.tsx";
 import { SpotLightRefType, StageSpotLight } from "./StageSpotLight.tsx";
+import { StageBox, BoxRefType } from "./StageBox.tsx";
 
 /**
- * react-springを使用したメインコンテンツ部分
+ * react-springを使用したメイン作例
  */
 export const MainContents = () => {
   // Boxコンポーネントの参照
@@ -51,7 +51,7 @@ export const MainContents = () => {
 
   return (
     <>
-      <Box ref={boxRef} shouldStick={isHovered} />
+      <StageBox ref={boxRef} shouldStick={isHovered} />
 
       <StageSpotLight
         ref={lightRedRef}

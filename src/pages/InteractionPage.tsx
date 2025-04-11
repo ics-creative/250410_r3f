@@ -3,6 +3,9 @@ import { Lights } from "../components/Lights.tsx";
 import { Link } from "react-router-dom";
 import { Box } from "../components/Box.tsx";
 
+/**
+ * アニメーションの実装サンプル
+ */
 export const InteractionPage = () => {
   return (
     <div className={"page"}>

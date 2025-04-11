@@ -2,6 +2,9 @@ import { Canvas } from "@react-three/fiber";
 import { Cube } from "../components/Cube.tsx";
 import { Link } from "react-router-dom";
 
+/**
+ * ポインターイベントの伝播検証用のページ
+ */
 export const PointerPage = () => {
   return (
     <div className={"page"}>

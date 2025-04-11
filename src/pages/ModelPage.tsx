@@ -28,6 +28,9 @@ const Model = () => {
   // return <primitive object={gltf.scene} />;
 };
 
+/**
+ * 3Dモデルの表示サンプル
+ */
 export const ModelPage = () => {
   return (
     <div className={"page"}>

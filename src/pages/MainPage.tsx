@@ -1,6 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { MainContents } from "../components/MainContents.tsx";
 
+/**
+ * react-springを使用したメイン作例のページ
+ */
 export const MainPage = () => {
   return (
     <div className={"page"}>

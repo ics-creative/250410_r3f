@@ -2,6 +2,9 @@ import { Canvas } from "@react-three/fiber";
 import { Ring } from "../components/Ring.tsx";
 import { CameraControls, Sky, Wireframe } from "@react-three/drei";
 
+/**
+ * Dreiを使用したサンプル
+ */
 export const DreiSamplePage = () => {
   return (
     <div className={"page"}>

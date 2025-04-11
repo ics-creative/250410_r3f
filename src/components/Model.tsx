@@ -1,6 +1,6 @@
 import { ThreeElements, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three-stdlib";
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import * as THREE from "three";
 import { a, AnimatedProps, SpringValue } from "@react-spring/three";
 
@@ -9,7 +9,10 @@ type Props = Omit<AnimatedProps<ThreeElements["group"]>, "rotation"> & {
   rotation?: SpringValue<number[]> | number[];
 };
 
-export const Model: FC<Props> = ({ ...props }) => {
+/**
+ * ネジ巻き
+ */
+export const Model = ({ ...props }: Props) => {
   // 3Dモデルの読み込み
   const gltf = useLoader(
     GLTFLoader,

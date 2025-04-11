@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { useRef } from "react";
 import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh, Vector3 } from "three";
 import {
@@ -12,12 +12,15 @@ type Props = ThreeElements["mesh"] & {
   meshRotation?: { x: number; y: number; z: number };
 };
 
-export const Ring: FC<Props> = ({ torusArgs, meshRotation, ...props }) => {
+/**
+ * Dreiを使用したサンプルページで表示する輪っか
+ */
+export const Ring = ({ torusArgs, meshRotation, ...props }: Props) => {
   const meshRef = useRef<Mesh>(null);
   const v = new Vector3();
 
   // 毎フレームの更新
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (!meshRef.current) return;
     // 回転
     meshRef.current.rotation.x += meshRotation?.x ?? 0;
@@ -25,7 +28,7 @@ export const Ring: FC<Props> = ({ torusArgs, meshRotation, ...props }) => {
     meshRef.current.rotation.z += meshRotation?.z ?? 0;
 
     // 初回はスケール１にアニメーション
-    meshRef.current.scale.lerp(v.set(1, 1, 1), 0.05);
+    meshRef.current.scale.lerp(v.set(1, 1, 1), delta * 2);
   });
 
   return (

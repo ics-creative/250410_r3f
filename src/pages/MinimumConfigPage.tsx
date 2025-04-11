@@ -1,6 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Link } from "react-router-dom";
 
+/**
+ * 最小構成サンプル
+ */
 export const MinimumConfigPage = () => {
   return (
     <div className={"page"}>

@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Cube } from "../components/Cube.tsx";
+import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
 import { Link } from "react-router-dom";
 
 /**
@@ -17,6 +18,7 @@ export const PointerPage = () => {
           {/* 左: 伝播防止なし */}
           <div className="pointerTestCanvasContainer">
             <Canvas
+              gl={createWebGPURenderer}
               orthographic={true}
               camera={{
                 zoom: 50, // ズーム倍率
@@ -34,6 +36,7 @@ export const PointerPage = () => {
           {/* 右: 伝播防止あり */}
           <div className="pointerTestCanvasContainer">
             <Canvas
+              gl={createWebGPURenderer}
               orthographic={true}
               camera={{
                 zoom: 50,

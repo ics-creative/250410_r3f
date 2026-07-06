@@ -16,14 +16,16 @@ npm run dev
 
 ## 使用ライブラリ
 
-- [Three.js](https://threejs.org/)
-- [React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction)
+- [Three.js](https://threejs.org/) r175（WebGPU）
+- [React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction) 9.1
 - [React](https://ja.react.dev/)
 - [@react-three/drei](https://drei.docs.pmnd.rs/getting-started/introduction): dreiの紹介ページで使用
 - [@react-spring/three](https://react-spring.dev/): ネジ巻きのアニメーション用
 - three-stdlib: 型エラーの解決用
 - react-router-dom: ページ遷移用
 - そのほかフォーマット用など
+
+`Canvas`の`gl`プロパティでThree.jsの`WebGPURenderer`を指定しています。WebGPU非対応環境ではWebGL 2.0へフォールバックします。
 
 
 ## ライセンス

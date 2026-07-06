@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { MainContents } from "../components/MainContents.tsx";
+import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
 
 /**
  * react-springを使用したメイン作例のページ
@@ -9,6 +10,7 @@ export const MainPage = () => {
     <div className={"page"}>
       <div className="canvasContainer">
         <Canvas
+          gl={createWebGPURenderer}
           camera={{
             fov: 45, // 視野角
             position: [-8, 3, 8], // 位置

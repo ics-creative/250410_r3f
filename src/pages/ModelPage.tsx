@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // これでも動作するが型エラーが出るため、three-stdlibパッケージを追加し使用。
-import { GLTFLoader } from "three-stdlib";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const Model = () => {
   // 3Dモデルの読み込み

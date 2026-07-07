@@ -21,7 +21,6 @@ npm run dev
 - [React](https://ja.react.dev/)
 - [@react-three/drei](https://drei.docs.pmnd.rs/getting-started/introduction): dreiの紹介ページで使用
 - [@react-spring/three](https://react-spring.dev/): ネジ巻きのアニメーション用
-- three-stdlib: 型エラーの解決用
 - react-router-dom: ページ遷移用
 - そのほかフォーマット用など
 

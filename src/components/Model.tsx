@@ -1,5 +1,5 @@
 import { ThreeElements, useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three-stdlib";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useEffect } from "react";
 import * as THREE from "three";
 import { a, AnimatedProps, SpringValue } from "@react-spring/three";

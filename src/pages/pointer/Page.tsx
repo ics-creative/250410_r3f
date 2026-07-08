@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import { Cube } from "../components/Cube.tsx";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { Cube } from "./Cube";
+import { PAGE_PATHS } from "../../consts/pagePaths";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 import { Link } from "react-router-dom";
 
 /**
@@ -26,10 +27,7 @@ export const PointerPage = () => (
           >
             <Cube position={[-0.5, 0, -0.5]} />
             <Cube position={[0, 0, 1]} />
-            <hemisphereLight
-              args={["#ffffff", "#ca60b5", 2]}
-              position={[0, 10, 2]}
-            />
+            <hemisphereLight args={["#ffffff", "#ca60b5", 2]} position={[0, 10, 2]} />
           </Canvas>
         </div>
         {/* 右: 伝播防止あり */}
@@ -44,15 +42,12 @@ export const PointerPage = () => (
           >
             <Cube position={[-0.5, 0, -0.5]} />
             <Cube position={[0, 0, 1]} disablePropagated={true} />
-            <hemisphereLight
-              args={["#ffffff", "#ca60b5", 2]}
-              position={[0, 10, 2]}
-            />
+            <hemisphereLight args={["#ffffff", "#ca60b5", 2]} position={[0, 10, 2]} />
           </Canvas>
         </div>
       </div>
     </div>
 
-    <Link to="/">ホームへ戻る</Link>
+    <Link to={PAGE_PATHS.index}>Back to Top</Link>
   </div>
 );

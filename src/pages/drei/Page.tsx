@@ -1,12 +1,12 @@
 import { Canvas } from "@react-three/fiber";
-import { Ring } from "../components/Ring.tsx";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { Ring } from "./Ring";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 import { CameraControls, Sky, Wireframe } from "@react-three/drei";
 
 /**
  * Dreiを使用したサンプル
  */
-export const DreiSamplePage = () => (
+export const DreiPage = () => (
   <div className="page">
     <div className="canvasContainer">
       <Canvas
@@ -17,12 +17,7 @@ export const DreiSamplePage = () => (
         }}
       >
         {/* 背景 */}
-        <Sky
-          distance={4000}
-          sunPosition={[1, 1, 0]}
-          turbidity={0.5}
-          rayleigh={0.1}
-        />
+        <Sky distance={4000} sunPosition={[1, 1, 0]} turbidity={0.5} rayleigh={0.1} />
 
         <mesh scale={0.5}>
           <sphereGeometry />

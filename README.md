@@ -25,7 +25,7 @@ npm run dev
 - [Vite](https://vite.dev/) 8.1: 開発サーバーとビルド
 - [Oxlint](https://oxc.rs/docs/guide/usage/linter) / [Oxfmt](https://oxc.rs/docs/guide/usage/formatter): lintとformat
 
-`Canvas`の`gl`プロパティでThree.jsの`WebGPURenderer`を指定しています。WebGPU非対応環境ではWebGL 2.0へフォールバックします。
+`Canvas`の`gl`プロパティでThree.jsの`WebGPURenderer`を指定しています。
 
 ## ライセンス
 

@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
-import { Lights } from "../components/Lights.tsx";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { Lights } from "./Lights";
+import { PAGE_PATHS } from "../../consts/pagePaths";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 import { Link } from "react-router-dom";
-import { Box } from "../components/Box.tsx";
+import { Box } from "./Box";
 
 /**
  * アニメーションの実装サンプル
@@ -29,6 +30,6 @@ export const InteractionPage = () => (
         <Lights />
       </Canvas>
     </div>
-    <Link to="/">ホームへ戻る</Link>
+    <Link to={PAGE_PATHS.index}>Back to Top</Link>
   </div>
 );

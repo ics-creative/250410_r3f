@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-import { MainContents } from "../components/MainContents.tsx";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { MainContents } from "./MainContents";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 
 /**
  * react-springを使用したメイン作例のページ

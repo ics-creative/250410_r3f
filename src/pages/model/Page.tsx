@@ -1,20 +1,14 @@
 import { Link } from "react-router-dom";
 import { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { PAGE_PATHS } from "../../consts/pagePaths";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const Model = () => {
   // 3Dモデルの読み込み
   const gltf = useLoader(GLTFLoader, "./gltf/neji.glb");
-  return (
-    <primitive
-      object={gltf.scene}
-      scale={2}
-      position={[0, 0.6, 0]}
-      rotation={[0, 0.7, 0]}
-    />
-  );
+  return <primitive object={gltf.scene} scale={2} position={[0, 0.6, 0]} rotation={[0, 0.7, 0]} />;
   // メモ: @react-three/drei を入れる場合は、以下に同じ
   // return (
   //   <Gltf src="./gltf/neji.glb" />
@@ -62,6 +56,6 @@ export const ModelPage = () => (
         </mesh>
       </Canvas>
     </div>
-    <Link to="/">ホームへ戻る</Link>
+    <Link to={PAGE_PATHS.index}>Back to Top</Link>
   </div>
 );

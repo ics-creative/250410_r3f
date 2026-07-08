@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Link } from "react-router-dom";
-import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
+import { PAGE_PATHS } from "../../consts/pagePaths";
+import { createWebGpuRenderer } from "../../lib/createWebGpuRenderer";
 
 /**
  * 最小構成サンプル
@@ -17,6 +18,6 @@ export const MinimumConfigPage = () => (
         </mesh>
       </Canvas>
     </div>
-    <Link to="/">ホームへ戻る</Link>
+    <Link to={PAGE_PATHS.index}>Back to Top</Link>
   </div>
 );

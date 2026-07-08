@@ -1,10 +1,10 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useThree } from "@react-three/fiber";
-import { useEnergy } from "./useEnergy.ts";
-import { Model } from "./Model.tsx";
-import { NEJI_POSITION } from "../consts/position.ts";
-import { StageSpotLight, type SpotLightRefType } from "./StageSpotLight.tsx";
-import { StageBox, type BoxRefType } from "./StageBox.tsx";
+import { useEnergy } from "./useEnergy";
+import { Model } from "./Model";
+import { NEJI_POSITION } from "./position";
+import { StageSpotLight, type SpotLightRefType } from "./StageSpotLight";
+import { StageBox, type BoxRefType } from "./StageBox";
 
 /**
  * react-springを使用したメイン作例

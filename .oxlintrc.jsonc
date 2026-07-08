@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true
+  },
+  "plugins": ["typescript", "react", "import", "unicorn", "oxc"],
+  "settings": {
+    "react": {
+      "version": "19.2.7"
+    }
+  },
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    // () => { return value; } より () => value を優先する。
+    "arrow-body-style": ["error", "as-needed"],
+
+    // className={"page"} のような不要なJSXの波括弧を禁止する。
+    "react/jsx-curly-brace-presence": "error",
+
+    // import文では .ts や .tsx を書かず、./pages/index/Page の形にそろえる。
+    "import/extensions": [
+      "error",
+      {
+        "checkTypeImports": true,
+        "pattern": {
+          "ts": "never",
+          "tsx": "never"
+        }
+      }
+    ],
+
+    // React Fast Refreshのため、コンポーネント以外のexportは定数だけ許可する。
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+
+    // Hooksを条件分岐や普通の関数内で呼ばないようにする。
+    "react/rules-of-hooks": "error"
+  }
+}

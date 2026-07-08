@@ -1,22 +1,23 @@
-import { Route, HashRouter as Router, Routes } from "react-router-dom";
-import { HomePage } from "./pages/HomePage.tsx";
-import { MinimumConfigPage } from "./pages/MinimumConfigPage.tsx";
-import { ModelPage } from "./pages/ModelPage.tsx";
-import { PointerPage } from "./pages/PointerPage.tsx";
-import { InteractionPage } from "./pages/InteractionPage.tsx";
-import { DreiSamplePage } from "./pages/DreiSamplePage.tsx";
-import { MainPage } from "./pages/MainPage.tsx";
+import { Route, HashRouter, Routes } from "react-router-dom";
+import { PAGE_PATHS } from "./consts/pagePaths";
+import { IndexPage } from "./pages/index/Page";
+import { MinimumConfigPage } from "./pages/minimum/Page";
+import { ModelPage } from "./pages/model/Page";
+import { PointerPage } from "./pages/pointer/Page";
+import { InteractionPage } from "./pages/interaction/Page";
+import { DreiPage } from "./pages/drei/Page";
+import { MainPage } from "./pages/main/Page";
 
 export const App = () => (
-  <Router>
+  <HashRouter>
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/minimum" element={<MinimumConfigPage />} />
-      <Route path="/model" element={<ModelPage />} />
-      <Route path="/pointer" element={<PointerPage />} />
-      <Route path="/interaction" element={<InteractionPage />} />
-      <Route path="/dreisample" element={<DreiSamplePage />} />
-      <Route path="/main" element={<MainPage />} />
+      <Route path={PAGE_PATHS.index} element={<IndexPage />} />
+      <Route path={PAGE_PATHS.minimum} element={<MinimumConfigPage />} />
+      <Route path={PAGE_PATHS.model} element={<ModelPage />} />
+      <Route path={PAGE_PATHS.pointer} element={<PointerPage />} />
+      <Route path={PAGE_PATHS.interaction} element={<InteractionPage />} />
+      <Route path={PAGE_PATHS.drei} element={<DreiPage />} />
+      <Route path={PAGE_PATHS.main} element={<MainPage />} />
     </Routes>
-  </Router>
+  </HashRouter>
 );

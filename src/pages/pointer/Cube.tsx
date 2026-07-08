@@ -28,12 +28,7 @@ export const Cube = ({ disablePropagated, ...props }: Props) => {
   };
 
   return (
-    <mesh
-      {...props}
-      scale={1.4}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
+    <mesh {...props} scale={1.4} onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}>
       <boxGeometry />
       <meshStandardMaterial color={isActive ? "#02bbff" : "#edce3c"} />
     </mesh>

@@ -1,11 +1,7 @@
 import { useRef } from "react";
 import { useFrame, type ThreeElements } from "@react-three/fiber";
 import { Vector3, type Mesh } from "three";
-import {
-  GradientTexture,
-  GradientType,
-  MeshDistortMaterial,
-} from "@react-three/drei";
+import { GradientTexture, GradientType, MeshDistortMaterial } from "@react-three/drei";
 
 type Props = ThreeElements["mesh"] & {
   torusArgs?: ThreeElements["torusGeometry"]["args"];

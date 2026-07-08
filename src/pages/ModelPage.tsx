@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
+import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const Model = () => {
@@ -33,7 +33,7 @@ export const ModelPage = () => {
     <div className={"page"}>
       <div className={"canvasContainer canvasContainer__withLink"}>
         <Canvas
-          gl={createWebGPURenderer}
+          gl={createWebGpuRenderer}
           camera={{
             fov: 45, // 視野角
             position: [0, 3, 6], // 位置

@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Lights } from "../components/Lights.tsx";
-import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
+import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
 import { Link } from "react-router-dom";
 import { Box } from "../components/Box.tsx";
 
@@ -12,7 +12,7 @@ export const InteractionPage = () => {
     <div className={"page"}>
       <div className="canvasContainer canvasContainer__withLink">
         <Canvas
-          gl={createWebGPURenderer}
+          gl={createWebGpuRenderer}
           camera={{
             fov: 45, // 視野角
             near: 0.1,

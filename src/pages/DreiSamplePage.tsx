@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Ring } from "../components/Ring.tsx";
-import { createWebGPURenderer } from "../lib/createWebGPURenderer.ts";
+import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
 import { CameraControls, Sky, Wireframe } from "@react-three/drei";
 
 /**
@@ -11,7 +11,7 @@ export const DreiSamplePage = () => {
     <div className={"page"}>
       <div className="canvasContainer">
         <Canvas
-          gl={createWebGPURenderer}
+          gl={createWebGpuRenderer}
           camera={{
             fov: 45, // 視野角
             position: [0, 3, 10], // 位置

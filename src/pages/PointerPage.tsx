@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
  * ポインターイベントの伝播検証用のページ
  */
 export const PointerPage = () => (
-  <div className={"page"}>
+  <div className="page">
     <div className="pointerTestWapper">
       <h1>ポインターイベントの違い</h1>
       <div className="pointerLayout">

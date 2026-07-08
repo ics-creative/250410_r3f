@@ -55,21 +55,21 @@ export const MainContents = () => {
 
       <StageSpotLight
         ref={lightRedRef}
-        color={"#f80e60"}
+        color="#f80e60"
         position={[0, 1, 0]}
         isActive={isActive}
         index={0}
       />
       <StageSpotLight
         ref={lightYellowRef}
-        color={"#dfb406"}
+        color="#dfb406"
         position={[0, 2, 0]}
         isActive={isActive}
         index={1}
       />
       <StageSpotLight
         ref={lightBlueRef}
-        color={"#00e0ff"}
+        color="#00e0ff"
         position={[0, 2.5, 0]}
         isActive={isActive}
         index={2}

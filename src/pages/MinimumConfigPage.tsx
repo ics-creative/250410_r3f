@@ -6,7 +6,7 @@ import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
  * 最小構成サンプル
  */
 export const MinimumConfigPage = () => (
-  <div className={"page"}>
+  <div className="page">
     <div className="canvasContainer canvasContainer__withLink">
       <Canvas gl={createWebGpuRenderer}>
         <mesh>

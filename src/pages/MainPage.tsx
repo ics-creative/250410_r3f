@@ -6,7 +6,7 @@ import { createWebGpuRenderer } from "../lib/createWebGpuRenderer.ts";
  * react-springを使用したメイン作例のページ
  */
 export const MainPage = () => (
-  <div className={"page"}>
+  <div className="page">
     <div className="canvasContainer">
       <Canvas
         gl={createWebGpuRenderer}
@@ -14,7 +14,7 @@ export const MainPage = () => (
           fov: 45, // 視野角
           position: [-8, 3, 8], // 位置
         }}
-        shadows={"soft"} // 影を有効化
+        shadows="soft" // 影を有効化
       >
         {/* 背景色 */}
         <color attach="background" args={["#13151c"]} />
@@ -27,11 +27,11 @@ export const MainPage = () => (
           receiveShadow={true} // 影を受け付ける
         >
           <boxGeometry args={[10, 6, 10]} />
-          <meshStandardMaterial color={"#e5f9ff"} roughness={0} />
+          <meshStandardMaterial color="#e5f9ff" roughness={0} />
         </mesh>
 
         <pointLight
-          color={"#ffecc5"}
+          color="#ffecc5"
           intensity={10}
           position={[1, 2, 3.5]}
           castShadow={true} // 影を落とす

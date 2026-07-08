@@ -8,7 +8,7 @@ import { Box } from "../components/Box.tsx";
  * アニメーションの実装サンプル
  */
 export const InteractionPage = () => (
-  <div className={"page"}>
+  <div className="page">
     <div className="canvasContainer canvasContainer__withLink">
       <Canvas
         gl={createWebGpuRenderer}
@@ -17,7 +17,7 @@ export const InteractionPage = () => (
           near: 0.1,
           position: [0, 3, 10], // 位置
         }}
-        shadows={"soft"} // 影を有効化
+        shadows="soft" // 影を有効化
       >
         {/* 背景色 */}
         <color attach="background" args={["#0e0f10"]} />

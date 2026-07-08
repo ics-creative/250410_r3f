@@ -21,10 +21,10 @@ export const Lights = () => {
 
   return (
     <>
-      <pointLight color={"#f80e60"} intensity={40} position={[3, 0, 0]} />
-      <pointLight color={"#dfb406"} intensity={40} position={[-3, 0, 0]} />
+      <pointLight color="#f80e60" intensity={40} position={[3, 0, 0]} />
+      <pointLight color="#dfb406" intensity={40} position={[-3, 0, 0]} />
       <pointLight
-        color={"#0693df"}
+        color="#0693df"
         intensity={40}
         position={[-2, 2, 2]}
         ref={lightBlueRef}

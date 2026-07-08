@@ -21,6 +21,7 @@
       }
     ],
     "arrow-body-style": ["error", "as-needed"],
+    "react/jsx-curly-brace-presence": "error",
     "react/only-export-components": ["warn", { "allowConstantExport": true }],
     "react/rules-of-hooks": "error"
   },

@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage.tsx";
 import { MinimumConfigPage } from "./pages/MinimumConfigPage.tsx";

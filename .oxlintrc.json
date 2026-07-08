@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true
+  },
+  "plugins": ["typescript", "react", "import", "unicorn", "oxc"],
+  "settings": {
+    "react": {
+      "version": "19.2.7"
+    }
+  },
+  "rules": {
+    "no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+        "fix": {
+          "imports": "safe-fix"
+        }
+      }
+    ],
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/rules-of-hooks": "error"
+  },
+  "options": {
+    "maxWarnings": 0,
+    "reportUnusedDisableDirectives": "error"
+  }
+}

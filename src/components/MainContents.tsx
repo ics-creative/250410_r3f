@@ -3,8 +3,8 @@ import { useThree } from "@react-three/fiber";
 import { useEnergy } from "./useEnergy.ts";
 import { Model } from "./Model.tsx";
 import { NEJI_POSITION } from "../consts/position.ts";
-import { SpotLightRefType, StageSpotLight } from "./StageSpotLight.tsx";
-import { StageBox, BoxRefType } from "./StageBox.tsx";
+import { StageSpotLight, type SpotLightRefType } from "./StageSpotLight.tsx";
+import { StageBox, type BoxRefType } from "./StageBox.tsx";
 
 /**
  * react-springを使用したメイン作例
@@ -80,7 +80,7 @@ export const MainContents = () => {
         <Model
           position={NEJI_POSITION}
           scale={[2, 2, 2]}
-          rotation={rotation}
+          rotationY={rotation}
           onClick={handleClick}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}

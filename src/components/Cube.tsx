@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ThreeElements, ThreeEvent } from "@react-three/fiber";
+import type { ThreeElements, ThreeEvent } from "@react-three/fiber";
 
 type Props = ThreeElements["mesh"] & {
   /** 伝播を防止するか */

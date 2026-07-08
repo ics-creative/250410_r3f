@@ -1,18 +1,18 @@
-import { ThreeElements, useLoader } from "@react-three/fiber";
+import { useLoader, type ThreeElements } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useEffect } from "react";
 import * as THREE from "three";
-import { a, AnimatedProps, SpringValue } from "@react-spring/three";
+import { a, type AnimatedProps, type SpringValue } from "@react-spring/three";
 
 type Props = Omit<AnimatedProps<ThreeElements["group"]>, "rotation"> & {
-  // AnimatedPropsで解決できなかったのでrotationだけ型を拡張
-  rotation?: SpringValue<number[]> | number[];
+  // AnimatedPropsで解決できなかったのでY軸回転だけ型を拡張
+  rotationY?: SpringValue<number> | number;
 };
 
 /**
  * ネジ巻き
  */
-export const Model = ({ ...props }: Props) => {
+export const Model = ({ rotationY, ...props }: Props) => {
   // 3Dモデルの読み込み
   const gltf = useLoader(
     GLTFLoader,
@@ -31,5 +31,9 @@ export const Model = ({ ...props }: Props) => {
   }, [gltf]);
 
   // アニメーションのためreact-springを使用
-  return <a.primitive {...props} object={gltf.scene} dispose={null} />;
+  return (
+    <a.group {...props} rotation-y={rotationY}>
+      <primitive object={gltf.scene} dispose={null} />
+    </a.group>
+  );
 };

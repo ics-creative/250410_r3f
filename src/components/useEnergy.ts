@@ -12,8 +12,8 @@ export const useEnergy = () => {
   const rotationY = energy * Math.PI;
 
   // springを定義（ターゲットのrotation.yが徐々に戻る）
-  const { rotation } = useSpring({
-    rotation: [0, -rotationY, 0],
+  const { rotationY: rotation } = useSpring({
+    rotationY: -rotationY,
     config: { mass: 1, tension: 50, friction: 20 }, // 動きのふんわり感
   });
 

@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import * as THREE from "three";
-import { ThreeElements, useFrame } from "@react-three/fiber";
-import { SpotLight } from "three";
+import { useFrame, type ThreeElements } from "@react-three/fiber";
+import type { SpotLight } from "three";
 
 export type SpotLightRefType = {
   getRef: () => SpotLight | null;

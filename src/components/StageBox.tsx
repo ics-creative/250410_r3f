@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import { ThreeElements, useFrame } from "@react-three/fiber";
-import { Mesh, Vector3 } from "three";
+import { useFrame, type ThreeElements } from "@react-three/fiber";
+import { Vector3, type Mesh } from "three";
 import * as THREE from "three";
 import { NEJI_POSITION } from "../consts/position.ts";
 

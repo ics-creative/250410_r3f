@@ -1,15 +1,19 @@
 name: Deploy to GitHub Pages
 
 on:
+  # mainへ反映されたらGitHub Pagesへデプロイする。
   push:
     branches: ["main"]
+  # 必要に応じてActions画面から手動実行できるようにする。
   workflow_dispatch:
 
+# GitHub Pagesデプロイに必要な最小権限だけを許可する。
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# GitHub Pagesへのデプロイが同時に走らないようにする。
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -27,6 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
+          # Vite 8の要求範囲を満たす現行LTSを使う。
           node-version: 24
           cache: "npm"
 
@@ -42,6 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
+          # vite buildの出力先をGitHub Pagesへ渡す。
           path: "./dist"
 
       - name: Deploy to GitHub Pages

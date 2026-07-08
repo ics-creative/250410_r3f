@@ -28,50 +28,44 @@ const Model = () => {
 /**
  * 3Dモデルの表示サンプル
  */
-export const ModelPage = () => {
-  return (
-    <div className={"page"}>
-      <div className={"canvasContainer canvasContainer__withLink"}>
-        <Canvas
-          gl={createWebGpuRenderer}
-          camera={{
-            fov: 45, // 視野角
-            position: [0, 3, 6], // 位置
-          }}
-        >
-          {/* フォグ */}
-          <fog attach="fog" args={["#95cdfb", 0, 20]} />
+export const ModelPage = () => (
+  <div className={"page"}>
+    <div className={"canvasContainer canvasContainer__withLink"}>
+      <Canvas
+        gl={createWebGpuRenderer}
+        camera={{
+          fov: 45, // 視野角
+          position: [0, 3, 6], // 位置
+        }}
+      >
+        {/* フォグ */}
+        <fog attach="fog" args={["#95cdfb", 0, 20]} />
 
-          {/* 3Dモデルの読み込み。Suspenseで囲むことで読み込み後に3D空間に追加される */}
-          <Suspense fallback={null}>
-            <Model />
-          </Suspense>
+        {/* 3Dモデルの読み込み。Suspenseで囲むことで読み込み後に3D空間に追加される */}
+        <Suspense fallback={null}>
+          <Model />
+        </Suspense>
 
-          <pointLight
-            color={"#3eaeec"}
-            intensity={40}
-            position={[0.6, 6, -8]}
-          />
-          <pointLight
-            color={"#e8d5aa"}
-            intensity={50}
-            position={[-0.2, 0.6, 2]}
-          />
+        <pointLight color={"#3eaeec"} intensity={40} position={[0.6, 6, -8]} />
+        <pointLight
+          color={"#e8d5aa"}
+          intensity={50}
+          position={[-0.2, 0.6, 2]}
+        />
 
-          {/* 読み込みタイミング比較用の立方体 */}
-          <mesh position={[0, -0.7, 0]}>
-            <boxGeometry />
-            <meshStandardMaterial color={"#5c9700"} />
-          </mesh>
+        {/* 読み込みタイミング比較用の立方体 */}
+        <mesh position={[0, -0.7, 0]}>
+          <boxGeometry />
+          <meshStandardMaterial color={"#5c9700"} />
+        </mesh>
 
-          {/* 床 */}
-          <mesh position={[0, -1.5, 0]}>
-            <boxGeometry args={[100, 0.1, 100]} />
-            <meshBasicMaterial color={"#ececec"} />
-          </mesh>
-        </Canvas>
-      </div>
-      <Link to="/">ホームへ戻る</Link>
+        {/* 床 */}
+        <mesh position={[0, -1.5, 0]}>
+          <boxGeometry args={[100, 0.1, 100]} />
+          <meshBasicMaterial color={"#ececec"} />
+        </mesh>
+      </Canvas>
     </div>
-  );
-};
+    <Link to="/">ホームへ戻る</Link>
+  </div>
+);

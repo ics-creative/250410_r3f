@@ -7,18 +7,16 @@ import { InteractionPage } from "./pages/InteractionPage.tsx";
 import { DreiSamplePage } from "./pages/DreiSamplePage.tsx";
 import { MainPage } from "./pages/MainPage.tsx";
 
-export const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/minimum" element={<MinimumConfigPage />} />
-        <Route path="/model" element={<ModelPage />} />
-        <Route path="/pointer" element={<PointerPage />} />
-        <Route path="/interaction" element={<InteractionPage />} />
-        <Route path="/dreisample" element={<DreiSamplePage />} />
-        <Route path="/main" element={<MainPage />} />
-      </Routes>
-    </Router>
-  );
-};
+export const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/minimum" element={<MinimumConfigPage />} />
+      <Route path="/model" element={<ModelPage />} />
+      <Route path="/pointer" element={<PointerPage />} />
+      <Route path="/interaction" element={<InteractionPage />} />
+      <Route path="/dreisample" element={<DreiSamplePage />} />
+      <Route path="/main" element={<MainPage />} />
+    </Routes>
+  </Router>
+);

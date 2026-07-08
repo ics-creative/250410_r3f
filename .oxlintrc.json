@@ -20,6 +20,7 @@
         }
       }
     ],
+    "arrow-body-style": ["error", "as-needed"],
     "react/only-export-components": ["warn", { "allowConstantExport": true }],
     "react/rules-of-hooks": "error"
   },

@@ -6,10 +6,7 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const Model = () => {
   // 3Dモデルの読み込み
-  const gltf = useLoader(
-    GLTFLoader,
-    `${import.meta.env.BASE_URL}gltf/neji.glb`,
-  ); // 本番・開発環境でパスを切り替える
+  const gltf = useLoader(GLTFLoader, "./gltf/neji.glb");
   return (
     <primitive
       object={gltf.scene}
@@ -20,11 +17,11 @@ const Model = () => {
   );
   // メモ: @react-three/drei を入れる場合は、以下に同じ
   // return (
-  //   <Gltf src="/gltf/neji.glb" />
+  //   <Gltf src="./gltf/neji.glb" />
   // );
 
   // メモ: 以下でもOK
-  // const gltf = useGLTF("/gltf/neji.glb");
+  // const gltf = useGLTF("./gltf/neji.glb");
   // return <primitive object={gltf.scene} />;
 };
 
